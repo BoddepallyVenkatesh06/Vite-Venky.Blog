@@ -1,0 +1,174 @@
+@import "../App.scss";
+
+.card-grid{
+    grid-template-columns: repeat(2, 1fr);
+    height: 460px;
+
+    .card-grid-text{
+        padding: 32px;
+
+        @include breakpoint-down(lg){
+            padding: 24px;
+        }
+    }
+
+    .card-grid-img{
+        @include breakpoint-down(lg){
+            height: 350px;
+        }
+
+        @include breakpoint-down(sm){
+            height: 280px;
+        }
+
+        @include breakpoint-down(xs){
+            height: 200px;
+        }
+    }
+
+    .card-footer{
+        .date-info{
+            color: $color-blue;
+        }
+    }
+
+    @include breakpoint-down(lg){
+        height: auto;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card{
+    position: relative;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px 0 rgba(15, 54, 44, 0.15);
+    transition: $default-transition;
+    height: 600px;
+
+    @include breakpoint-down(lg){
+        height: 450px;
+    }
+
+    @include breakpoint-down(lg){
+        height: 420px!important;
+    }
+
+    @include breakpoint-down(lg){
+        height: 380px!important;
+    }
+
+    &-overlay-img{
+        border-radius: 16px;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(24, 59, 86, 0) 0%, rgba(22, 49, 70, 0.45) 45.38%, #152532 100%);
+        z-index: 0;
+        border-radius: 16px;
+        transition: $default-transition;
+    }
+
+    .badge{
+        position: absolute;
+        top: 32px;
+        left: 26px;
+        z-index: 1;
+
+        @include breakpoint-down(lg){
+            left: 16px;
+            top: 16px;
+        }
+    }
+
+    &-content{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 0 48px 42px 48px;
+        z-index: 1;
+
+        @include breakpoint-down(lg){
+            padding: 0 32px 24px 32px;
+        }
+    }
+
+    &-body{
+        .title{
+            color: $color-white;
+        }
+
+        .text{
+            color: $color-white;
+        }
+    }
+
+    &-footer{
+        margin-top: 24px;
+
+        .writer-info{
+            grid-template-columns: 40px auto;
+            column-gap: 12px;
+
+            .info-avatar{
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                overflow: hidden;
+            }
+            .intro-name{
+                color: $color-blue;
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
+            .intro-verify{
+                column-gap: 8px;
+            }
+            .verify-icon{
+                width: 16px;
+            }
+            .verify-status{
+                font-style: italic;
+                font-weight: 300;
+            }
+        }
+
+        .date-info{
+            font-weight: 600;
+            color: $color-white;
+        }
+
+        &-light{
+            .writer-info{
+                .intro-name,
+                .verify-status{
+                    color: $color-white;
+                }
+            }
+        }
+
+        @include breakpoint-down(lg){
+            margin-top: 20px;
+        }
+    }
+
+    &:hover{
+        transform: translateY(-8px);
+    }
+
+    &.card-sm{
+        .title-base{
+            font-size: 24px;
+        }
+
+        .card-content{
+            padding: 36px 28px;
+        }
+    }
+}

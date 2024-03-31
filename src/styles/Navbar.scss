@@ -1,0 +1,179 @@
+@import "../App.scss";
+
+.nav-brand,
+.ftr-brand{
+    font-size: 24px;
+    font-weight: bold;
+
+    &-dot{
+        width: 6px;
+        height: 6px;
+        display: inline-block;
+        border-radius: 100%;
+        margin-left: 2px;
+    }
+}
+
+.navbar{
+    height: 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+    .brand-and-toggler{
+        @include breakpoint-down(lg){
+            width: 100%;
+        }
+    }
+
+    .nav-show-btn{
+        font-size: 24px;
+        display: none;
+
+        @include breakpoint-down(lg){
+            display: block;
+        }
+    }
+
+    .nav-hide-btn{
+        display: none;
+        font-size: 24px;
+    }
+
+    .nb-menu-wrapper{
+        .nav-item{
+            margin-left: 40px;
+        }
+
+        .nav-link{
+            color: $color-white;
+            font-weight: 600;
+            font-size: 16px;
+
+            &-icon{
+                display: inline-block;
+                margin-left: 6px;
+                margin-top: -2px;
+            }
+        }
+
+        .nav-btns{
+            margin-left: 40px;
+        }
+
+        .nav-btn{
+            border: 2px solid $color-white;
+            border-radius: 8px;
+            color: $color-white;
+            font-weight: 600;
+            font-size: 16px;
+
+            &:hover{
+                background-color: $color-primary;
+                color: $color-white;
+                border-color: $color-primary;
+            }
+        }
+
+        @include breakpoint-down(lg){
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 240px;
+            background-color: $color-white;
+            height: 100%;
+            z-index: 999;
+            box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+            flex-direction: column;
+            padding: 60px 16px;
+            row-gap: 20px;
+            transform: translateX(100%);
+            transition: $default-transition;
+
+            &.show{
+                transform: translateX(0);
+            }
+
+            .nav-hide-btn{
+                display: block;
+                position: absolute;
+                right: 16px;
+                top: 6px;
+            }
+
+            .nav-menu{
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-item{
+                margin-left: 0;
+                padding-bottom: 16px;
+                padding-top: 16px;
+                border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                &:last-child{
+                    border-bottom: 0;
+                }
+            }
+
+            .nav-link{
+                color: $color-blue;
+            }
+
+            .nav-btns{
+                margin-left: 0;
+            }
+
+            .nav-btn{
+                border-color: $color-primary;
+                color: $color-primary;
+
+                &:hover{
+                    background-color: $color-primary;
+                    color: $color-white;
+                }
+            }
+        }
+
+        @include breakpoint-down(xs){
+            width: 100%;
+        }
+    }
+
+    &.scrolled{
+        background-color: $color-white;
+        box-shadow: rgba(50, 50, 93, 0.15) 0 13px 27px -5px, rgba(0, 0, 0, 0.1) 0 8px 16px -8px;
+
+        .nav-brand,
+        .nav-link,
+        .nav-show-btn{
+            color: $color-blue;
+        }
+
+        .nav-brand{
+            &-dot{
+                background-color: $color-blue;
+            }
+        }
+
+        .nav-btn{
+            border-color: $color-blue;
+            color: $color-blue;
+            &:hover{
+                background-color: $color-blue;
+                color: $color-white;
+                border-color: $color-blue;
+            }
+        }
+    }
+
+    @include breakpoint-down(xs){
+        height: 64px;
+    }
+}
